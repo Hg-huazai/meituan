@@ -189,7 +189,6 @@
 			// 　　    }).exec()
 			//     },
 			// });
-			
 		},
 		methods: {
 			statetap(e) {

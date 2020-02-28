@@ -1,19 +1,19 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			// console.log('App Launch')
 		},
 		onShow: function() {
-			console.log('App Show')
+			// console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
 		}
 	}
 </script>
 
 <style>
-	@import url("https://at.alicdn.com/t/font_1657807_46dpv2htkwk.css");
+	@import url("https://at.alicdn.com/t/font_1657807_bao9irwvqv.css");
 	/*每个页面公共css */
 	.left-l {
 		float: left;

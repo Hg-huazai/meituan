@@ -237,12 +237,14 @@
 	.content1 .item .item1 .right-r .jibie {
 		position: absolute;
 		bottom: 0;
+		left: -15%;
 		background-color: #57c9ff;
 		padding: 10rpx 20rpx;
-		font-size: 24rpx;
+		font-size: 10rpx;
 		border-radius: 40rpx;
-		width: 100%;
+		width: 130%;
 		box-sizing: border-box;
+		text-align: center;
 	}
 	.content1 .item .item2 {
 		display: flex;
