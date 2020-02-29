@@ -175,12 +175,14 @@
 		padding-top: 88rpx;
 	}
 	.example-body {
+		padding-top: 30rpx;
 		position: fixed;
 		top: 0;
 		z-index: 20;
 	}
 	.content1 {
-		padding: 30rpx;
+		/* padding: 30rpx; */
+		padding-top: 60rpx;
 		background: -webkit-linear-gradient(top, #089eff, #f2f3f7);
 	}
 	.content1 .item {

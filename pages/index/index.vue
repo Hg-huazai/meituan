@@ -247,6 +247,7 @@
 		width: 100%;
 	}
 	.content1-top {
+		padding-top: 50rpx;
 		padding: 20rpx 30rpx;
 		display: flex;
 		color: #fff;
