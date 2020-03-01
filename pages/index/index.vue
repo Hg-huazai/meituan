@@ -6,7 +6,7 @@
 		</view> -->
 		<view class="content1">
 			<view class="content1-top">
-				<view class="item">
+				<!-- <view class="item">
 					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
 				</view>
 				<view class="item center" @click="onClickshow">
@@ -16,6 +16,19 @@
 					<i class="iconfont" :class="icon"></i>
 				</view>
 				<view class="item right" >
+					<i class="iconfont icon-xiaoxi"></i>
+					<i class="iconfont icon-lujing"></i>
+				</view> -->
+				<view class="left-l item">
+					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
+				</view>
+				<view class="left-l item center" @click="onClickshow">
+					<text class="work">
+						未开工
+					</text>
+					<!-- <i class="iconfont" :class="icon"></i> -->
+				</view>
+				<view class="right-r item right" >
 					<i class="iconfont icon-xiaoxi"></i>
 					<i class="iconfont icon-lujing"></i>
 				</view>
@@ -247,11 +260,14 @@
 		width: 100%;
 	}
 	.content1-top {
-		padding-top: 50rpx;
-		padding: 20rpx 30rpx;
+		/* margin-top: 30rpx; */
+		padding:50rpx 20rpx 30rpx;
+		/* border-top: 35rpx solid #a1a1a1; */
+		/* padding: 20rpx; */
 		display: flex;
 		color: #fff;
 		background-color: #21232f;
+		/* background: -webkit-linear-gradient(top,#a3a3a3,#21232f); */
 	}
 	.content1-top .iconfont {
 		font-size: 50rpx;
@@ -266,7 +282,8 @@
 		margin-left: 15rpx;
 	}
 	.content1-top .item {
-		flex: 1;
+		/* flex: 1; */
+		width: 33%;
 	}
 	.content1-top .item.center {
 		text-align: center;
@@ -311,7 +328,8 @@
 	
 	/* ----------------------------------------------------------正文----------------------------------------- */
 	.content2 {
-		margin-top: 194rpx;
+		/* margin-top: 194rpx; */
+		margin-top: 264rpx;
 	}
 	/*---------------------------------------------------------------------------------底部 */
 	.content-bottom {
@@ -458,7 +476,9 @@
 		background-color: #4a505e;
 		color: #FFFFFF;
 		position: fixed;
-		top: 96rpx;
+		/* top: 96rpx; */
+		/* top: 126rpx; */
+		top: 180rpx;
 		left: 284rpx;
 		padding: 0 20rpx;
 	}

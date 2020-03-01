@@ -128,11 +128,14 @@
 
 	.uni-navbar {
 		width: 750rpx;
+		// width: 100%;
+		// padding-top: 30rpx;
 	}
 
 	.uni-navbar__content {
 		position: relative;
 		width: 750rpx;
+		// width: 100%;
 		background-color: $uni-bg-color;
 		overflow: hidden;
 	}
@@ -149,9 +152,11 @@
 	.uni-navbar__header {
 		/* #ifndef APP-NVUE */
 		display: flex;
+		padding-top: 30rpx;
 		/* #endif */
 		flex-direction: row;
-		width: 750rpx;
+		// width: 750rpx;
+		width: 100%;
 		height: $nav-height;
 		line-height: $nav-height;
 		font-size: 16px;

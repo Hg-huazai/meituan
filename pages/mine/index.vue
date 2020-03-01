@@ -175,7 +175,7 @@
 		padding-top: 88rpx;
 	}
 	.example-body {
-		padding-top: 30rpx;
+		/* padding-top: 30rpx; */
 		position: fixed;
 		top: 0;
 		z-index: 20;
