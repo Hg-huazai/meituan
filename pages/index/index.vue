@@ -6,32 +6,34 @@
 		</view> -->
 		<view class="content1">
 			<view class="content1-top">
-				<!-- <view class="item">
+				<view class="item">
 					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
 				</view>
 				<view class="item center" @click="onClickshow">
 					<text class="work">
 						未开工
 					</text>
-					<i class="iconfont" :class="icon"></i>
+					<!-- <i class="iconfont" :class="icon"></i> -->
 				</view>
 				<view class="item right" >
 					<i class="iconfont icon-xiaoxi"></i>
 					<i class="iconfont icon-lujing"></i>
-				</view> -->
-				<view class="left-l item">
+				</view>
+				
+				
+				<!-- <view class="left-l item">
 					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
 				</view>
 				<view class="left-l item center" @click="onClickshow">
 					<text class="work">
 						未开工
 					</text>
-					<!-- <i class="iconfont" :class="icon"></i> -->
+					<i class="iconfont" :class="icon"></i>
 				</view>
 				<view class="right-r item right" >
 					<i class="iconfont icon-xiaoxi"></i>
 					<i class="iconfont icon-lujing"></i>
-				</view>
+				</view> -->
 			</view>
 			<!-- -----------------------------------------状态-------------------------------------- -->
 			<view class="state">
@@ -116,7 +118,6 @@
 					<view class="item-center">
 						<view class="left-l left">
 							<view class="business-distance">
-								<!-- <text>0.5\n</text><text class="text2">km</text> -->
 								<view class="text">0.5</view>
 								<view class="text2">km</view>
 							</view>
@@ -124,7 +125,6 @@
 							<view class="iconfont icon-yuansu_juli"></view>
 							
 							<view class="guest-distance">
-								<!-- <text>4.8\n</text><text class="text2">km</text> -->
 								<view class="text">4.8</view>
 								<view class="text2">km</view>
 							</view>
@@ -267,7 +267,10 @@
 		display: flex;
 		color: #fff;
 		background-color: #21232f;
+		/* box-sizing: border-box; */
+		/* justify-content: space-between; */
 		/* background: -webkit-linear-gradient(top,#a3a3a3,#21232f); */
+		align-items: flex-start;
 	}
 	.content1-top .iconfont {
 		font-size: 50rpx;
@@ -280,16 +283,25 @@
 	.content1-top .iconfont.icon-jiantou-copy{
 		font-size: 30rpx;
 		margin-left: 15rpx;
+		bottom: 25px;
 	}
 	.content1-top .item {
-		/* flex: 1; */
-		width: 33%;
+		flex: 1;
+		/* width: 33%; */
+		/* background-color: pink; */
+		/* border: 2rpx solid red; */
+		white-space: nowrap !important;
 	}
 	.content1-top .item.center {
 		text-align: center;
+		/* background-color: pink; */
 	}
 	.content1-top .item .work {
 		font-weight: bold;
+		/* background-color: blue; */
+	}
+	.content1-top .item.center .iconfont {
+		/* background-color: red; */
 	}
 	.content1-top .item.right .icon-lujing {
 		float: right;
