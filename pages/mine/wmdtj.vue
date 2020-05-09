@@ -62,9 +62,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="button">
-				<button type="">查看详情</button>
-			</view>
+			<navigator class="button" url="./tjxq">
+				<button type="" >查看详情</button>
+			</navigator>
 		</view>
 		<!-- 显示近30天 -->
 		<view class="list" v-show="current==2">
@@ -94,9 +94,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="button">
-				<button type="">查看详情</button>
-			</view>
+			<navigator class="button" url="./tjxq">
+				<button type="" >查看详情</button>
+			</navigator>
 		</view>
 		<!-- 显示其他变动 -->
 		<view class="list" v-show="current==3">
@@ -126,9 +126,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="button">
-				<button type="">查看详情</button>
-			</view>
+			<navigator class="button" url="./tjxq">
+				<button type="" >查看详情</button>
+			</navigator>
 		</view>
 	</view>
 </template>

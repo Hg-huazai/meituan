@@ -22,6 +22,9 @@
 </script>
 
 <style lang="less">
+	page {
+		background-color: #f5f5f5;
+	}
 	.null {
 		// background-color: #f5f5f5;
 		// height: 100vh;

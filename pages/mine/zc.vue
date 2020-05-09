@@ -27,25 +27,25 @@
 			</navigator>
 		</view>
 		<view class="list">
-			<view class="item">
+			<navigator class="item" url="./sqtx">
 				<text class="iconfont icon-jinrongfuwu left-l icon"></text>
 				<text class="text left-l">申请提现</text>
 				<text class="iconfont icon-youjiantou1 right-r"></text>
 				<view class="clear">
 					
 				</view>
-			</view>
+			</navigator>
 		</view>
 		
 		<view class="list">
-			<view class="item">
+			<navigator class="item" url="./txzh">
 				<text class="iconfont icon-qiapian left-l icon"></text>
 				<text class="text left-l">提现账户</text>
 				<text class="iconfont icon-youjiantou1 right-r"></text>
 				<view class="clear">
 					
 				</view>
-			</view>
+			</navigator>
 		</view>
 	</view>
 </template>

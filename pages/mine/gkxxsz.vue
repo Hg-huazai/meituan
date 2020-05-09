@@ -1,18 +1,23 @@
 <template>
 	<view class="content">
 		<view class="list">
-			<navigator class="item" url="./wmdtj">
-				<text class="iconfont icon-shuangsechangyongtubiao- left-l icon"></text>
-				<text class="text left-l">外卖单统计</text>
+			<navigator class="item" url="./kfzt">
+				<text class="text left-l">当前客服状态</text>
 				<text class="iconfont icon-youjiantou1 right-r"></text>
+				<text class="right-r">在线</text>
 				<view class="clear">
 					
 				</view>
+				<view class="all">
+					此处为设置为配送员的客服状态
+				</view>
 			</navigator>
-			<navigator class="item" url="./ptdtj">
-				<text class="iconfont icon-tongji3 left-l icon"></text>
-				<text class="text left-l">跑腿单统计</text>
+		</view>
+		<view class="list">
+			<navigator class="item" url="./mlzt">
+				<text class="text left-l">忙碌状态自动回复</text>
 				<text class="iconfont icon-youjiantou1 right-r"></text>
+				<text class="right-r">暂未设置</text>
 				<view class="clear">
 					
 				</view>
@@ -34,14 +39,11 @@
 <style lang="less">
 	page {
 		background-color: #f5f5f5;
-		
-	}
-	.content {
-		padding-top: 25rpx;
 	}
 	.list {
-		// margin: 25rpx 0;
+		// margin-bottom: 25rpx;
 		.item {
+			margin: 25rpx 0;
 			background-color: #FFFFFF;
 			padding: 30rpx 20rpx;
 			border-bottom: 1rpx solid #D3D3D3;
@@ -54,13 +56,15 @@
 				vertical-align: middle;
 				
 			}
-			.icon {
-				color: #0ec3b4;
-				margin-right: 20rpx;
-				
+			.iconfont {
+				padding-top: 4rpx;
 			}
-			.icon-youjiantou1 {
-				font-size: 20rpx;
+			.all {
+				margin-top: 20rpx;
+				color: #b3b3b3;
+			}
+			.right-r {
+				color: #b3b3b3;
 			}
 		}
 	}

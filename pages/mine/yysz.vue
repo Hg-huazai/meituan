@@ -61,7 +61,7 @@
 				</view>
 				<view class="right-b">
 					<laber key="yingyue">
-						<radio value="yingyue" style="transform:scale(0.7)" />
+						<radio value="yingyue" style="transform:scale(0.7)" color="#0ec3b4" />
 					</laber>
 				</view>
 				<view class="clear">
@@ -74,7 +74,7 @@
 				</view>
 				<view class="right-b">
 					<laber key="dingdan">
-						<radio value="dingdan" style="transform:scale(0.7)"/>
+						<radio value="dingdan" style="transform:scale(0.7)" color="#0ec3b4"/>
 					</laber>
 				</view>
 				<view class="clear">

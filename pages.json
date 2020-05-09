@@ -78,7 +78,8 @@
             "style" : {
 				"navigationBarTitleText": "消息中心-【在线】",
 				"navigationBarBackgroundColor": "#0ec3b4",
-				"navigationBarTextStyle": "white"
+				"navigationBarTextStyle": "white",
+				"navigationStyle":"custom"
 			}
         }
         ,{
@@ -117,6 +118,86 @@
             "path" : "pages/mine/ptdtj",
             "style" : {
 				"navigationBarTitleText": "跑腿单统计",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/wmphb",
+            "style" : {
+				"navigationBarTitleText": "外卖排行榜",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/ptphp",
+            "style" : {
+				"navigationBarTitleText": "跑腿排行榜",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/dwxx",
+            "style" : {
+				"navigationBarTitleText": "定位信息",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/wdwz",
+            "style" : {
+				"navigationBarTitleText": "我的位置",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/tjxq",
+            "style" : {
+				"navigationBarTitleText": "统计详情",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/sqtx",
+            "style" : {
+				"navigationBarTitleText": "申请提现",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/txzh",
+            "style" : {
+				"navigationBarTitleText": "提现账号",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/gkxxsz",
+            "style" : {
+				"navigationBarTitleText": "顾客消息设置",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/kfzt",
+            "style" : {
+				"navigationBarTitleText": "客服状态",
+				"navigationBarBackgroundColor": "#0ec3b4",
+				"navigationBarTextStyle": "white"
+			}
+        }
+        ,{
+            "path" : "pages/mine/mlzt",
+            "style" : {
+				"navigationBarTitleText": "忙碌状态自动回复",
 				"navigationBarBackgroundColor": "#0ec3b4",
 				"navigationBarTextStyle": "white"
 			}

@@ -122,30 +122,30 @@
 					配送统计
 				</view>
 			</navigator>
-			<view class="item in-b">
+			<navigator class="item in-b" url="./wmphb">
 				<view class="iconfont icon-tongji">
 					
 				</view>
 				<view class="text">
 					外卖排行
 				</view>
-			</view>
-			<view class="item in-b">
+			</navigator>
+			<navigator class="item in-b" url="./ptphp">
 				<view class="iconfont icon-shuangsechangyongtubiao-">
 					
 				</view>
 				<view class="text">
 					跑腿排行
 				</view>
-			</view>
-			<view class="item in-b">
+			</navigator>
+			<navigator class="item in-b" url="./dwxx">
 				<view class="iconfont icon-weizhi">
 					
 				</view>
 				<view class="text">
 					定位信息
 				</view>
-			</view>
+			</navigator>
 			<navigator class="item in-b" url="./gglb">
 				<view class="iconfont icon-wenben">
 					
@@ -154,14 +154,14 @@
 					公告列表
 				</view>
 			</navigator>
-			<view class="item in-b">
+			<navigator class="item in-b" url="./wdwz">
 				<view class="iconfont icon-weizhi">
 					
 				</view>
 				<view class="text">
 					我的位置
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<!-- tip -->
 		<view class="tip">
