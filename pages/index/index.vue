@@ -1,69 +1,40 @@
 <template>
 	<view class="content">
-		<!-- 自定义导航 -->
-		<!-- <view class="example-body">
-			<uni-nav-bar left-icon="arrowleft" right-text="菜单" left-text="返回" title="标题" @clickLeft="back" />
-		</view> -->
 		<view class="content1">
-			<view class="content1-top">
-				<view class="item">
-					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
-				</view>
-				<view class="item center" @click="onClickshow">
-					<text class="work">
-						未开工
-					</text>
-					<!-- <i class="iconfont" :class="icon"></i> -->
-				</view>
-				<view class="item right" >
-					<i class="iconfont icon-xiaoxi"></i>
-					<i class="iconfont icon-lujing"></i>
-				</view>
-				
-				
-				<!-- <view class="left-l item">
-					<navigator class="iconfont icon-gerenzhongxin_xuanzhong-copy" url="../mine/index"></navigator>
-				</view>
-				<view class="left-l item center" @click="onClickshow">
-					<text class="work">
-						未开工
-					</text>
-					<i class="iconfont" :class="icon"></i>
-				</view>
-				<view class="right-r item right" >
-					<i class="iconfont icon-xiaoxi"></i>
-					<i class="iconfont icon-lujing"></i>
-				</view> -->
-			</view>
+		
 			<!-- -----------------------------------------状态-------------------------------------- -->
 			<view class="state">
-				<view class="box" :class="[index === curren ? 'active' : '']" v-for="(item,index) in state" :key="index" @tap="statetap(index)">
-					<view class="item">
-						<text>{{item.name}}</text>
-						<i class="iconfont icon-jiantou"></i>
+				<view class="uni-list kaigong">
+					<view class="uni-list-cell uni-list-cell-pd">
+						<view class="uni-list-cell-db left-l">接单状态</view>
+						<switch checked class="right-r"  @change="switch1Change"/>
+						<view class="clear">
+							
+						</view>
 					</view>
 				</view>
+				<view class="box" v-if="kaigong">
+					<view class="item" :class="[index === curren ? 'active' : '']" v-for="(item,index) in state" :key="index" @tap="statetap(index)">
+						{{item.name}}
+					</view>
+				</view>
+				<!-- <view class="uni-list kaigong">
+					<view class="uni-list-cell uni-list-cell-pd">
+						<view class="uni-list-cell-db left-l">接单状态</view>
+						<switch checked class="right-r"  @change="switch1Change"/>
+						<view class="clear">
+							
+						</view>
+					</view>
+				</view> -->
 			</view>
+			
 		</view>
 		
 		
-		<!-- -------------------------------------------------弹出--------------------------------------------- -->
-		<view class="show" v-bind:style="{display: show}" >
-			<view class="bg" @click="onClickbg"></view>
-			<view class="show-item">
-				<view class="item" @click="onClickwork">
-					<i class="iconfont icon-jiedan"></i>
-					<text>接单</text>
-				</view>
-				<view class="item" @click="onClickrest">
-					<i class="iconfont icon-kafei xiuxi"></i>
-					<text class="">休息</text>
-				</view>
-			</view>
-		</view>
 		
 		<!-- ----------------------------------------------正文内容 ------------------------------------------------>
-		<view class="content2" v-bind:style="{'margin-top':topheight+'px'}">
+		<view class="content2" v-if="kaigong">
 			<view class="content3">
 				<!-- ----------------------------订单------------------------------ -->
 				<navigator class="order" url="../details/details">
@@ -101,7 +72,49 @@
 						<view class="clear"></view>
 					</view>
 					<view class="item-bottom">
-						<button type="primary">抢单</button>
+						<view class="button">
+							抢单
+						</view>
+					</view>
+				</navigator>
+				<navigator class="order" url="../details/details">
+					<view class="item-top">
+						<view class="left-l">
+							<i class="iconfont icon-shijian"></i>
+							<text>58分钟内送达</text>
+						</view>
+						<view class="right-r">
+							￥<text>17</text>
+						</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item-center">
+						<view class="left-l left">
+							<view class="business-distance">
+								<!-- <text>0.5\n</text><text class="text2">km</text> -->
+								<view class="text">0.5</view>
+								<view class="text2">km</view>
+							</view>
+							
+							<view class="iconfont icon-yuansu_juli"></view>
+							
+							<view class="guest-distance">
+								<!-- <text>4.8\n</text><text class="text2">km</text> -->
+								<view class="text">4.8</view>
+								<view class="text2">km</view>
+							</view>
+						</view>
+						<view class="left-l right">
+							<view class="name">烧鹅王(体育西店)</view>
+							<view class="business-address">广州市天河区体育西行街43号</view>
+							<view class="guest-address">中华国际中心B座(3601室)</view>
+						</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item-bottom">
+						<view class="button">
+							抢单
+						</view>
 					</view>
 				</navigator>
 				<navigator class="order" url="../details/details">
@@ -137,29 +150,31 @@
 						<view class="clear"></view>
 					</view>
 					<view class="item-bottom">
-						<button type="primary">抢单</button>
+						<!-- <view class="button">
+							抢单
+						</view> -->
+						<view class="button">
+							抢单
+						</view>
 					</view>
 				</navigator>
 				
 			</view>
 			
 		</view>
-		<!-- <view v-bind:style="{ 'margin-top': topheight + 'px' }">666</view> -->
 		
-		<!-- --------------------------------------------------底部--------------------------------------------------- -->
-		<view class="content-bottom">
-			<view class="left">
-				<view class="iconfont icon-shezhi"></view>
-				<view class="name">接单设置</view>
-			</view>
-			<view class="right">
-				<button type="primary">立即开工</button>
-			</view>
-		</view>
 		
 		<!-- ----------------------------------------------获得抢单资格---------------------------------------- -->
-		<view class="float">
+		<view class="float" v-if="kaigong" >
 			获得抢单资格
+		</view>
+		<view class="null" v-if="!kaigong">
+			<view class="icon">
+				<text class="iconfont icon-fengbaochao"></text>
+			</view>
+			<view class="xx">
+				您正在休息中
+			</view>
 		</view>
 	</view>
 	
@@ -182,7 +197,8 @@
 					{name: "待抢单",state: 1},
 					{name: "待取货",state: 2},
 					{name: "待送达",state: 3}
-				]
+				],
+				kaigong: true
 			}
 		},
 		onLoad() {
@@ -206,13 +222,14 @@
 		methods: {
 			statetap(e) {
 				this.curren = e ;
+				
 			},
 			// 点击未开工
-			onClickshow (){
-				this.show = 'block',
-				this.icon = 'icon-jiantou-copy'
-				// console.log("show");
-			},
+			switch1Change: function (e) {
+			   //          console.log('switch1 发生 change 事件，携带值为', e.target.value)
+						// console.log(e)
+						this.kaigong = e.target.value
+			        },
 			onClickbg (){
 				this.show = 'none',
 				this.icon = 'icon-jiantou'
@@ -241,7 +258,38 @@
 	}
 </script>
 
-<style>
+<style lang="less">
+	page {
+		background-color: #F8F8F8;
+	}
+	.null {
+		text-align: center;
+		margin-top: 100rpx;
+		.icon {
+			width: 300rpx;
+			height: 300rpx;
+			line-height: 300rpx;
+			text-align: center;
+			background-color: #FFFFFF;
+			margin: 0 auto;
+			border-radius: 50%;
+			overflow: hidden;
+			.iconfont {
+				font-size: 120rpx;
+			}
+		}
+		.xx {
+			margin-top: 30rpx;
+			font-size: 30rpx;
+		}
+	}
+	.kaigong {
+		width: 100%;
+		margin-bottom: 20rpx;
+	}
+	.content {
+		padding-top: 184rpx;
+	}
 	.float {
 		position: fixed;
 		right: 0;
@@ -315,33 +363,34 @@
 	/* -------------------------------------------------------状态------------------------------------- */
 	.state {
 		padding: 20rpx 30rpx;
-		display: flex;
+		position: fixed;
+		top: 0;
+		width: 100%;
 		color: #fff;
-		background-color: #21232f;
+		background-color: #0ec3b4;
+		box-sizing: border-box;
+		z-index: 4;
 	}
 	.state .box {
-		text-align: center;
-		flex: 1;
+		display: flex;
+		/* width: 100%; */
 		font-size: 32rpx;
-		color: #babac2;
+		color: #FFFFFF;
+		z-index: 4;
+		
 	}
-	.state .box.active .item {
+	.state .box .active{
 		border-bottom: 8rpx solid #fff;
-		color: #fff;
 	}
 	.state .box .item{
 		padding-bottom: 10rpx;
-		display: inline-block;
+		flex: 1;
+		text-align: center;
+		
 	}
 	.state .box .iconfont{
 		font-size: 26rpx;
 		margin-left: 20rpx;
-	}
-	
-	/* ----------------------------------------------------------正文----------------------------------------- */
-	.content2 {
-		/* margin-top: 194rpx; */
-		margin-top: 264rpx;
 	}
 	/*---------------------------------------------------------------------------------底部 */
 	.content-bottom {
@@ -461,8 +510,13 @@
 		font-weight: bold;
 		margin-top: 30rpx;
 	}
-	.order .item-bottom button{
+	.order .item-bottom .button{
 		border-radius: 80rpx;
+		padding: 20rpx;
+		font-size: 32rpx;
+		color: #fff;
+		text-align: center;
+		background-color: #0ec3b4;
 	}
 	/* --------------------------------------------------------------------弹出----------------------------------------- */
 	.show {

@@ -30,4 +30,5 @@
 	.in-b {
 		display: inline-block;
 	}
+	
 </style>
