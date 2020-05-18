@@ -9,7 +9,7 @@
 				</view>
 			</navigator>
 		</view>
-		<view class="button">
+		<view class="button" @click="closelogin">
 			<button type="">退出登录</button>
 		</view>
 	</view>
@@ -21,6 +21,27 @@
 			return {
 				
 			};
+		},
+		methods:{
+			closelogin(){
+				console.log('退出登录')
+				uni.getStorage({
+				    key: 'phone',
+				    success: function (res) {
+				        console.log(res.data);
+				    }
+				});
+				// 清除缓存登录
+				uni.removeStorage({
+				    key: 'phone',
+				    success: function (res) {
+				        console.log('success');
+						uni.navigateTo({
+							url:'../login/login'
+						})
+				    }
+				});
+			}
 		}
 	}
 </script>

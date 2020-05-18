@@ -13,7 +13,7 @@
 				</view>
 			</view>
 			<view class="button">
-				<button type="" form-type="submit">退出登录</button>
+				<button type="" form-type="submit">提交保存</button>
 			</view>
 		</form>
 	</view>
