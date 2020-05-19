@@ -11,157 +11,164 @@
 		</view>
 		
 		
-		<!-- --------------------------------------------------------------底部固定-------------------------------------- -->
-		<view class="content-bottom">
-			<button type="primary">抢单</button>
-		</view>
-		
-		<!-- --------------------------------------------------------------详情 ------------------------------------------------>
-		<view class="details">
-			<view class="box-xiahuaxian">
-				<view class="item"></view>
-			</view>
-			<view class="number">
-				<view class="left-l">
-					<icon class="iconfont icon-shijian"></icon>
-					<text>18:20~18:40送达</text>
-				</view>
-				<view class="right-r">
-					￥<text>7.2</text>
-				</view>
-				<view class="clear"></view>
-			</view>
-			<view class="info">
-				<view class="item1">
-					<view class="left-l left">
-						<view class="left">取</view>
-					</view>
-					<view class="left-l right">开心花甲粉(花城汇店)</view>
-					<view class="clear"></view>
-				</view>
-				<view class="item2">
-					<view class="in-b left">
-						<view class="left-item1">2.5</view>
-						<view class="left-item2">km</view>
-					</view>
-					<view class="in-b right">广州市天河区体育西行街43号花城汇负一层北区C区</view>
-					<view class="clear"></view>
-				</view>
-				<view class="item1">
-					<view class="left-l left" >
-						<view class="left" style="background-color: #43d100;">送</view>
-					</view>
-					<view class="left-l right ">娇林菀(娇林街61号A栋隔壁幸福驿站的村口美宜佳)</view>
-					<view class="clear"></view>
-				</view>
-			</view>
-			<!-- -----------------------要求----------------------------- -->
-			<view class="requirement">
-				<view class="top">
-					<view class="left-l">特殊要求</view>
-					<view class="right-r"></view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">顾客备注</view>
-					<view class="right-r">1份餐具</view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">发票</view>
-					<view class="right-r">不需要</view>
-					<view class="clear"></view>
-				</view>
+		<view class="order" v-for="item in order">
+			<!-- --------------------------------------------------------------底部固定-------------------------------------- -->
+			<view class="content-bottom">
+				<button type="primary" @click="orderclick(item.state)">
+					<text v-if="item.state == 1">待抢单</text>
+					<text v-if="item.state == 2">待取货</text>
+					<text v-if="item.state == 3">待送达</text>
+					<text v-if="item.state == 4">已完成</text>
+				</button>
 			</view>
 			
-			<!-- -----------------------餐品----------------------------- -->
-			<view class="requirement">
-				<view class="top">
-					<view class="left-l">餐品<text>(总价 ￥17.5)</text></view>
-					<view class="right-r">x3</view>
-					<view class="clear"></view>
+			<!-- --------------------------------------------------------------详情 ------------------------------------------------>
+			<view class="details">
+				<view class="box-xiahuaxian">
+					<view class="item"></view>
 				</view>
-				<view class="item">
-					<view class="left-l">免费加粉丝(限一份)</view>
-					<view class="right-r">x1</view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">肥牛</view>
-					<view class="right-r">x1</view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">鲜虾+肥牛+花甲粉</view>
-					<view class="right-r">x1</view>
-					<view class="clear"></view>
-				</view>
-			</view>
-			
-			<!-- -----------------------订单信息------------------------- -->
-			<view class="requirement">
-				<view class="top">
-					<view class="left-l">订单信息</view>
-					<view class="right-r"></view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">订单号</view>
-					<view class="right-r">3000145120109406807 <text class="copy">复制</text></view>
-					<view class="clear"></view>
-				</view>
-				<view class="item">
-					<view class="left-l">订单类型</view>
-					<view class="right-r">外卖</view>
-					<view class="clear"></view>
-				</view>
-			</view>
-			
-			<!-- -----------------------配送------------------------- -->
-			<view class="requirement">
-				<view class="peisong">
-					<view class="dian ">
-						<i class="iconfont icon-yuandian"></i>
-						<text></text>
-						<i class="iconfont icon-yuandian"></i>
-						<text></text>
-						<i class="iconfont icon-yuandian"></i>
-						<text></text>
-						<i class="iconfont icon-yuandian"></i>
+				<view class="number">
+					<view class="left-l">
+						<icon class="iconfont icon-shijian"></icon>
+						<text>18:20~18:40送达</text>
 					</view>
-					<view class="xinxi">
-						<view class="box">
-							<view class="box-item">接单时间</view>
+					<view class="right-r">
+						￥<text>7.2</text>
+					</view>
+					<view class="clear"></view>
+				</view>
+				<view class="info">
+					<view class="item1">
+						<view class="left-l left">
+							<view class="left">取</view>
 						</view>
-						<view class="box">
-							<view class="box-item">实际到店</view>
+						<view class="left-l right">开心花甲粉(花城汇店)</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item2">
+						<view class="in-b left">
+							<view class="left-item1">2.5</view>
+							<view class="left-item2">km</view>
 						</view>
-						<view class="box">
-							<view class="box-item">实际取餐</view>
+						<view class="in-b right">广州市天河区体育西行街43号花城汇负一层北区C区</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item1">
+						<view class="left-l left" >
+							<view class="left" style="background-color: #43d100;">送</view>
 						</view>
-						<view class="box">
-							<view class="box-item">实际送达</view>
-						</view>
+						<view class="left-l right ">娇林菀(娇林街61号A栋隔壁幸福驿站的村口美宜佳)</view>
+						<view class="clear"></view>
 					</view>
 				</view>
-			</view>
-			
-			<!-- -----------------------收入明细----------------------------- -->
-			<view class="requirement">
-				<view class="top">
-					<view class="left-l">收入明细</view>
-					<view class="right-r"></view>
-					<view class="clear"></view>
+				<!-- -----------------------要求----------------------------- -->
+				<view class="requirement">
+					<view class="top">
+						<view class="left-l">特殊要求</view>
+						<view class="right-r"></view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">顾客备注</view>
+						<view class="right-r">1份餐具</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">发票</view>
+						<view class="right-r">不需要</view>
+						<view class="clear"></view>
+					</view>
 				</view>
-				<view class="item">
-					<view class="left-l">基础配送费</view>
-					<view class="right-r">￥5.6</view>
-					<view class="clear"></view>
+				
+				<!-- -----------------------餐品----------------------------- -->
+				<view class="requirement">
+					<view class="top">
+						<view class="left-l">餐品<text>(总价 ￥17.5)</text></view>
+						<view class="right-r">x3</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">免费加粉丝(限一份)</view>
+						<view class="right-r">x1</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">肥牛</view>
+						<view class="right-r">x1</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">鲜虾+肥牛+花甲粉</view>
+						<view class="right-r">x1</view>
+						<view class="clear"></view>
+					</view>
 				</view>
-				<view class="item">
-					<view class="left-l">特殊简历</view>
-					<view class="right-r">￥1.6</view>
-					<view class="clear"></view>
+				
+				<!-- -----------------------订单信息------------------------- -->
+				<view class="requirement">
+					<view class="top">
+						<view class="left-l">订单信息</view>
+						<view class="right-r"></view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">订单号</view>
+						<view class="right-r">3000145120109406807 <text class="copy">复制</text></view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">订单类型</view>
+						<view class="right-r">外卖</view>
+						<view class="clear"></view>
+					</view>
+				</view>
+				
+				<!-- -----------------------配送------------------------- -->
+				<view class="requirement">
+					<view class="peisong">
+						<view class="dian ">
+							<i class="iconfont icon-yuandian"></i>
+							<text></text>
+							<i class="iconfont icon-yuandian"></i>
+							<text></text>
+							<i class="iconfont icon-yuandian"></i>
+							<text></text>
+							<i class="iconfont icon-yuandian"></i>
+						</view>
+						<view class="xinxi">
+							<view class="box">
+								<view class="box-item">接单时间</view>
+							</view>
+							<view class="box">
+								<view class="box-item">实际到店</view>
+							</view>
+							<view class="box">
+								<view class="box-item">实际取餐</view>
+							</view>
+							<view class="box">
+								<view class="box-item">实际送达</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				
+				<!-- -----------------------收入明细----------------------------- -->
+				<view class="requirement">
+					<view class="top">
+						<view class="left-l">收入明细</view>
+						<view class="right-r"></view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">基础配送费</view>
+						<view class="right-r">￥5.6</view>
+						<view class="clear"></view>
+					</view>
+					<view class="item">
+						<view class="left-l">特殊简历</view>
+						<view class="right-r">￥1.6</view>
+						<view class="clear"></view>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -179,7 +186,18 @@
 		},
 		data(){
 			return {
-				
+				list: [
+					{time: '31', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 3, state: 1 ,id: '02'},
+					{time: '23', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 5, state: 1 ,id: '04'},
+					{time: '43', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 7, state: 1 ,id: '05'},
+					{time: '24', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号2', oldaddres: '中华国际中心B座(3601室)', money: 8, state: 2 ,id: '119'},
+					{time: '60', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号2', oldaddres: '中华国际中心B座(3601室)', money: 23, state: 2 ,id: '220'},
+					{time: '34', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号3', oldaddres: '中华国际中心B座(3601室)', money: 42, state: 3 ,id: '230'},
+					{time: '56', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 24, state: 4 ,id: '33'},
+					{time: '23', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 54, state: 4 ,id: '66'},
+					{time: '55', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 2, state: 4 ,id: '55'},
+				],
+				order: [],
 			}
 		},
 		onLoad (){
@@ -190,7 +208,64 @@
 				uni.navigateBack({
 					delta: 1
 				})
+			},
+			// 点击抢单
+			orderclick(e){
+				console.log(this.order[0].state)
+				var order1 = this.order
+				if(e==1){
+					uni.showModal({
+						// this.order[0]
+						title:'确定抢单吗?',
+						 success: function (res) {
+						        if (res.confirm) {
+									order1[0].state = e+1
+									this.order = order1
+						            console.log('用户点击确定');
+						        } else if (res.cancel) {
+						            console.log('用户点击取消');
+						        }
+						    }
+					})
+					console.log(this.order[0].state)
+				}else if(e==2){
+					uni.showModal({
+						title:'确定已取货吗?',
+						 success: function (res) {
+						        if (res.confirm) {
+						            console.log('用户点击确定');
+									order1[0].state = e+1
+									this.order = order1
+						        } else if (res.cancel) {
+						            console.log('用户点击取消');
+						        }
+						    }
+					})
+				}else if(e==3){
+					uni.showModal({
+						title:'确定已送达吗?',
+						 success: function (res) {
+						        if (res.confirm) {
+						            console.log('用户点击确定');
+									order1[0].state = e+1
+									this.order = order1
+						        } else if (res.cancel) {
+						            console.log('用户点击取消');
+						        }
+						    }
+					})
+				}else if(e==4){
+					uni.showToast({
+					    title: '已完成配送',
+					    duration: 2000
+					});
+				}
 			}
+		},
+		onLoad(e) {
+			console.log(e.id),
+			this.order = this.list.filter(res => res.id == e.id);
+			console.log(this.order)
 		}
 	}
 </script>
@@ -387,6 +462,6 @@
 		border-radius: 50rpx;
 		width: 100%;
 		font-weight: bold;
-		background-color: #009bff;
+		background-color: #0ec3b4;
 	}
 </style>

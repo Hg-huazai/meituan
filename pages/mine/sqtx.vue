@@ -26,20 +26,22 @@
 				</view>
 			</view>
 			<radio-group @change="radioChange">	
+			<laber key="yingyue" v-for="(item,index) in list" :for="item.name">
 				<view class="item">
 					<view class="left-l">
-						微信提现
+						{{item.value}}
 					</view>
 					<view class="right-b">
-						<laber key="yingyue">
-							<radio value="yingyue" style="transform:scale(0.7)" color="#0ec3b4" checked="true" />
-						</laber>
+						
+							<radio value="yingyue" style="transform:scale(0.7)" :id="item.name" :value="item.name" color="#0ec3b4" :checked="item.checked"/>
+						
 					</view>
 					<view class="clear">
 						
 					</view>
 				</view>
-				<view class="item">
+				</laber>
+				<!-- <view class="item">
 					<view class="left-l">
 						支付宝提现
 					</view>
@@ -64,7 +66,7 @@
 					<view class="clear">
 						
 					</view>
-				</view>
+				</view> -->
 			</radio-group>
 				
 			<button form-type="submit">提现</button>
@@ -76,7 +78,11 @@
 	export default {
 		data() {
 			return {
-				
+				list: [
+					{name: 'wx',value: '微信提现',checked: true},
+					{name: 'zfb',value: '支付宝提现'},
+					{name: 'yhk',value: '银行卡提现'},
+				]
 			};
 		},
 		methods: {

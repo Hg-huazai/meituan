@@ -6,13 +6,13 @@
 			</view>
 			<form @submit="formSubmit">
 				<view class="phone">
-					<text>+86</text>
-					<text></text>
-					<input type="number" name="phone" value="" placeholder="请输入手机号码"/>
+					<!-- <text>+86</text>
+					<text></text> -->
+					<input type="text" name="phone" value="" placeholder="请输入用户名"/>
 				</view>
 				<view class="yzm">
-					<input type="number" name="yzm" value="" placeholder="请输入短信验证码"/>
-					<button type="primary">获取验证码</button>
+					<input type="text" name="yzm" value="" placeholder="请输入密码"/>
+					<!-- <button type="primary">获取验证码</button> -->
 					<view class="clear">
 					</view>
 				</view>
@@ -36,10 +36,10 @@
 				var yzm = e.detail.value.yzm
 				const type = uni.getStorageSync('type');
 				
-				var ab = /^[1][3,4,5,7,8][0-9]{9}$/;
-				if (ab.test(phone) == false) {
+				// var ab = /^[1][3,4,5,7,8][0-9]{9}$/;
+				if (phone == false) {
 					uni.showToast({
-					    title: '手机号有误',
+					    title: '请输入用户名',
 					    duration: 2000,
 						icon:'none'
 					});
@@ -47,7 +47,7 @@
 					if(!yzm) {
 						// console.log('yzm1')
 						uni.showToast({
-						    title: '请输入验证码',
+						    title: '请输入密码',
 						    duration: 2000,
 							icon:'none'
 						});

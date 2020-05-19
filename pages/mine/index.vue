@@ -122,22 +122,22 @@
 					配送统计
 				</view>
 			</navigator>
-			<navigator class="item in-b" url="./wmphb">
+			<!-- <navigator class="item in-b" url="./wmphb">
 				<view class="iconfont icon-tongji">
 					
 				</view>
 				<view class="text">
 					外卖排行
 				</view>
-			</navigator>
-			<navigator class="item in-b" url="./ptphp">
+			</navigator> -->
+			<!-- <navigator class="item in-b" url="./ptphp">
 				<view class="iconfont icon-shuangsechangyongtubiao-">
 					
 				</view>
 				<view class="text">
 					跑腿排行
 				</view>
-			</navigator>
+			</navigator> -->
 			<navigator class="item in-b" url="./dwxx">
 				<view class="iconfont icon-weizhi">
 					
@@ -164,9 +164,9 @@
 			</navigator>
 		</view>
 		<!-- tip -->
-		<view class="tip">
+		<!-- <view class="tip">
 			语由音技术由科大讯飞提供支持
-		</view>
+		</view> -->
 	</view>
 </template>
 

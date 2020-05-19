@@ -18,15 +18,6 @@
 						{{item.name}}
 					</view>
 				</view>
-				<!-- <view class="uni-list kaigong">
-					<view class="uni-list-cell uni-list-cell-pd">
-						<view class="uni-list-cell-db left-l">接单状态</view>
-						<switch checked class="right-r"  @change="switch1Change"/>
-						<view class="clear">
-							
-						</view>
-					</view>
-				</view> -->
 			</view>
 			
 		</view>
@@ -35,16 +26,18 @@
 		
 		<!-- ----------------------------------------------正文内容 ------------------------------------------------>
 		<view class="content2" v-if="kaigong">
+			<!-- 待抢单 -->
+			
 			<view class="content3">
 				<!-- ----------------------------订单------------------------------ -->
-				<navigator class="order" url="../details/details">
+				<navigator class="order" v-for="(item,index) in order" url="">
 					<view class="item-top">
 						<view class="left-l">
 							<i class="iconfont icon-shijian"></i>
-							<text>58分钟内送达</text>
+							<text>{{item.time}}分钟内送达</text>
 						</view>
 						<view class="right-r">
-							￥<text>17</text>
+							￥<text>{{item.money}}</text>
 						</view>
 						<view class="clear"></view>
 					</view>
@@ -52,7 +45,7 @@
 						<view class="left-l left">
 							<view class="business-distance">
 								<!-- <text>0.5\n</text><text class="text2">km</text> -->
-								<view class="text">0.5</view>
+								<view class="text">{{item.newjili}}</view>
 								<view class="text2">km</view>
 							</view>
 							
@@ -60,106 +53,28 @@
 							
 							<view class="guest-distance">
 								<!-- <text>4.8\n</text><text class="text2">km</text> -->
-								<view class="text">4.8</view>
+								<view class="text">{{item.oldjili}}</view>
 								<view class="text2">km</view>
 							</view>
 						</view>
 						<view class="left-l right">
-							<view class="name">烧鹅王(体育西店)</view>
-							<view class="business-address">广州市天河区体育西行街43号</view>
-							<view class="guest-address">中华国际中心B座(3601室)</view>
+							<view class="name">{{item.name}}</view>
+							<view class="business-address">{{item.newaddres}}</view>
+							<view class="guest-address">{{item.oldaddres}}</view>
 						</view>
 						<view class="clear"></view>
 					</view>
 					<view class="item-bottom">
-						<view class="button">
-							抢单
+						<view  class="button" @click="qiandan(item.id)">
+							<text v-if="item.state == 1">待抢单</text>
+							<text v-if="item.state == 2">待取货</text>
+							<text v-if="item.state == 3">待送达</text>
+							<text v-if="item.state == 4">已完成</text>
 						</view>
 					</view>
 				</navigator>
-				<navigator class="order" url="../details/details">
-					<view class="item-top">
-						<view class="left-l">
-							<i class="iconfont icon-shijian"></i>
-							<text>58分钟内送达</text>
-						</view>
-						<view class="right-r">
-							￥<text>17</text>
-						</view>
-						<view class="clear"></view>
-					</view>
-					<view class="item-center">
-						<view class="left-l left">
-							<view class="business-distance">
-								<!-- <text>0.5\n</text><text class="text2">km</text> -->
-								<view class="text">0.5</view>
-								<view class="text2">km</view>
-							</view>
-							
-							<view class="iconfont icon-yuansu_juli"></view>
-							
-							<view class="guest-distance">
-								<!-- <text>4.8\n</text><text class="text2">km</text> -->
-								<view class="text">4.8</view>
-								<view class="text2">km</view>
-							</view>
-						</view>
-						<view class="left-l right">
-							<view class="name">烧鹅王(体育西店)</view>
-							<view class="business-address">广州市天河区体育西行街43号</view>
-							<view class="guest-address">中华国际中心B座(3601室)</view>
-						</view>
-						<view class="clear"></view>
-					</view>
-					<view class="item-bottom">
-						<view class="button">
-							抢单
-						</view>
-					</view>
-				</navigator>
-				<navigator class="order" url="../details/details">
-					<view class="item-top">
-						<view class="left-l">
-							<i class="iconfont icon-shijian"></i>
-							<text>58分钟内送达</text>
-						</view>
-						<view class="right-r">
-							￥<text>17</text>
-						</view>
-						<view class="clear"></view>
-					</view>
-					<view class="item-center">
-						<view class="left-l left">
-							<view class="business-distance">
-								<view class="text">0.5</view>
-								<view class="text2">km</view>
-							</view>
-							
-							<view class="iconfont icon-yuansu_juli"></view>
-							
-							<view class="guest-distance">
-								<view class="text">4.8</view>
-								<view class="text2">km</view>
-							</view>
-						</view>
-						<view class="left-l right">
-							<view class="name">烧鹅王(体育西店)</view>
-							<view class="business-address">广州市天河区体育西行街43号</view>
-							<view class="guest-address">中华国际中心B座(3601室)</view>
-						</view>
-						<view class="clear"></view>
-					</view>
-					<view class="item-bottom">
-						<!-- <view class="button">
-							抢单
-						</view> -->
-						<view class="button">
-							抢单
-						</view>
-					</view>
-				</navigator>
-				
 			</view>
+			
 			
 		</view>
 		
@@ -196,9 +111,22 @@
 				state: [
 					{name: "待抢单",state: 1},
 					{name: "待取货",state: 2},
-					{name: "待送达",state: 3}
+					{name: "待送达",state: 3},
+					{name: "已完成",state: 4}
 				],
-				kaigong: true
+				list: [
+					{time: '31', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 3, state: 1 ,id: '02'},
+					{time: '23', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 5, state: 1 ,id: '04'},
+					{time: '43', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号1', oldaddres: '中华国际中心B座(3601室)', money: 7, state: 1 ,id: '05'},
+					{time: '24', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号2', oldaddres: '中华国际中心B座(3601室)', money: 8, state: 2 ,id: '119'},
+					{time: '60', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号2', oldaddres: '中华国际中心B座(3601室)', money: 23, state: 2 ,id: '220'},
+					{time: '34', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号3', oldaddres: '中华国际中心B座(3601室)', money: 42, state: 3 ,id: '230'},
+					{time: '56', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 24, state: 4 ,id: '33'},
+					{time: '23', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 54, state: 4 ,id: '66'},
+					{time: '55', newjili: '0.5',oldjili: '4.8',name: '烧鹅王(体育西店)', newaddres: '广州市天河区体育西行街43号4', oldaddres: '中华国际中心B座(3601室)', money: 2, state: 4 ,id: '55'},
+				],
+				order:[],
+				kaigong: true,
 			}
 		},
 		onLoad() {
@@ -208,52 +136,29 @@
 			this.topheight = data.height
 			}).exec();
 			
-			// uni.getSystemInfo({
-			// 　　success: function(res) { // res - 各种参数
-			// 　　   console.log('屏幕的高度'+res.windowHeight); // 屏幕的宽度 
+			// 首次进入显示待抢单
+			var list1 = this.list.filter(res => res.state == 1);
+			this.order = list1
 			
-			// 　　    let info = uni.createSelectorQuery().select(".content1");
-			// 　　　  　info.boundingClientRect(function(data) { //data - 各种参数
-			// 　　　  　console.log('获取元素高度'+ data)  // 获取元素宽度
-			// 　　    }).exec()
-			//     },
-			// });
 		},
 		methods: {
 			statetap(e) {
 				this.curren = e ;
+				// var list1=[]
+				var list1 = this.list.filter(res => res.state == e+1);
+				this.order = list1
 				
 			},
-			// 点击未开工
-			switch1Change: function (e) {
-			   //          console.log('switch1 发生 change 事件，携带值为', e.target.value)
-						// console.log(e)
-						this.kaigong = e.target.value
-			        },
+			// 点击抢单
+			qiandan(e){
+				uni.navigateTo({
+					url:'../details/details?id='+e
+				})
+			},
 			onClickbg (){
 				this.show = 'none',
 				this.icon = 'icon-jiantou'
 			},
-			// 接单
-			onClickwork (){
-				this.show = 'none',
-				this.icon = 'icon-jiantou',
-				uni.showToast({
-				    title: '开始接单了',
-				    duration: 2000
-				});
-				// console.log("接单")
-			},
-			//休息
-			onClickrest (){
-				this.show = 'none',
-				this.icon = 'icon-jiantou',
-				// console.log("休息")
-				uni.showToast({
-				    title: '您辛苦了',
-				    duration: 2000
-				});
-			}
 		}
 	}
 </script>
